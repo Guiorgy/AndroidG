@@ -8,6 +8,20 @@ import androidx.annotation.NonNull;
 import guiorgy.androidg.fragment.app.IFragmentBackable;
 
 public class Activity extends AbstractActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Do not let the launcher create a new activity http://stackoverflow.com/questions/16283079
+        if (!isTaskRoot()) {
+            // Android launched another instance of the root activity into an existing task
+            //  so just quietly finish and go away, dropping the user back into the activity
+            //  at the top of the stack (ie: the last state of this task)
+            finish();
+            return;
+        }
+    }
+
     @NonNull
     @Override
     public int[] getFragmentIds() {
