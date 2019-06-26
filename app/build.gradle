@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+def VERSION_NAME = project.VERSION_NAME
+def VERSION_CODE = Integer.parseInt(project.VERSION_CODE)
+
+def ANDROID_COMPILE_SDK_VERSION = Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
+def ANDROID_TARGET_SDK_VERSION = Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
+def ANDROID_BUILD_TOOLS_VERSION = project.ANDROID_BUILD_TOOLS_VERSION
+def ANDROID_MIN_SDK_VERSION = Integer.parseInt(project.ANDROID_MIN_SDK_VERSION)
+
+def JAVA_COMPATIBILITY =  JavaVersion.valueOf(project.JAVA_COMPATIBILITY)
+
+android {
+    compileSdkVersion ANDROID_COMPILE_SDK_VERSION
+    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId "guiorgy.androidg.demo"
+        minSdkVersion ANDROID_MIN_SDK_VERSION
+        targetSdkVersion ANDROID_TARGET_SDK_VERSION
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JAVA_COMPATIBILITY
+        targetCompatibility JAVA_COMPATIBILITY
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            multiDexEnabled false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            multiDexEnabled false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // Unit Test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

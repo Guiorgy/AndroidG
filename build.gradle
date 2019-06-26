@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://maven.google.com" }
+        maven { url "https://dl.bintray.com/kotlin/kotlinx/" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools:r8:1.4.93'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == "lint") {
+        //this is for speed up build
+        task.enabled = false
+    }
+    if(task.name.contains("Test"))
+    {
+        //this is to disable test
+        task.enabled = false
+    }
+}
