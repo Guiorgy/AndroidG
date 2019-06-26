@@ -1,4 +1,4 @@
-package guiorgy.javag.util;
+package guiorgy.androidg.core.util;
 
 import android.app.Activity;
 import android.content.Context;
