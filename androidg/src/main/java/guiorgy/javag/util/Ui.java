@@ -80,4 +80,33 @@ public class Ui {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         if (imm != null) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+    /**
+     * Assuming that all views in the list have the same height, calculate the current scroll position.
+     *
+     * @param list
+     * @return The calculated scroll position.
+     */
+    public static int getListYScroll(@NonNull final AbsListView list) {
+        View child = list.getChildAt(0);
+        return child == null ? 0 : list.getFirstVisiblePosition() * child.getHeight() - child.getTop() + list.getPaddingTop();
+    }
+
+    /**
+     * Calculate the current scroll position.
+     *
+     * @param list
+     * @return The calculated scroll position.
+     */
+    public static int getListYScrollDeep(@NonNull final AbsListView list) {
+        final View child = list.getChildAt(0);
+        if (child == null) return 0;
+        final int padding = child.getTop() - list.getPaddingTop();
+        final int visible = list.getFirstVisiblePosition();
+        int scroll = 0;
+        for (int i = 0; i < visible; i++) {
+            scroll += list.getChildAt(i).getHeight();
+        }
+        return scroll - padding;
+    }
 }
