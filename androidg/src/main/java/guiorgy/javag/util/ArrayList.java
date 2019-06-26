@@ -7,7 +7,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new byte[0];
         }
-
         if (byteArray.length < size) {
             byteArray = new byte[size];
         }
@@ -20,8 +19,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 byteArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            byteArray[index++] = (Byte) get(index);
+        byteArray[0] = (byte) elem;
+        for (int index = 1; index < size; ++index) {
+            byteArray[index++] = (byte) get(index);
         }
         return byteArray;
     }
@@ -32,7 +32,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new short[0];
         }
-
         if (shortArray.length < size) {
             shortArray = new short[size];
         }
@@ -45,8 +44,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 shortArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            shortArray[index++] = (Short) get(index);
+        shortArray[0] = (short) elem;
+        for (int index = 1; index < size; ++index) {
+            shortArray[index++] = (short) get(index);
         }
         return shortArray;
     }
@@ -57,7 +57,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new int[0];
         }
-
         if (intArray.length < size) {
             intArray = new int[size];
         }
@@ -70,8 +69,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 intArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            intArray[index++] = (Integer) get(index);
+        intArray[0] = (int) elem;
+        for (int index = 1; index < size; ++index) {
+            intArray[index++] = (int) get(index);
         }
         return intArray;
     }
@@ -82,7 +82,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new long[0];
         }
-
         if (longArray.length < size) {
             longArray = new long[size];
         }
@@ -95,8 +94,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 longArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            longArray[index++] = (Long) get(index);
+        longArray[0] = (long) elem;
+        for (int index = 1; index < size; ++index) {
+            longArray[index++] = (long) get(index);
         }
         return longArray;
     }
@@ -107,7 +107,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new float[0];
         }
-
         if (floatArray.length < size) {
             floatArray = new float[size];
         }
@@ -120,8 +119,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 floatArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            floatArray[index++] = (Float) get(index);
+        floatArray[0] = (float) elem;
+        for (int index = 1; index < size; ++index) {
+            floatArray[index++] = (float) get(index);
         }
         return floatArray;
     }
@@ -132,7 +132,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new double[0];
         }
-
         if (doubleArray.length < size) {
             doubleArray = new double[size];
         }
@@ -145,8 +144,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 doubleArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            doubleArray[index++] = (Double) get(index);
+        doubleArray[0] = (double) elem;
+        for (int index = 1; index < size; ++index) {
+            doubleArray[index++] = (double) get(index);
         }
         return doubleArray;
     }
@@ -157,7 +157,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new boolean[0];
         }
-
         if (booleanArray.length < size) {
             booleanArray = new boolean[size];
         }
@@ -170,8 +169,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 booleanArray[index] = false;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            booleanArray[index++] = (Boolean) get(index);
+        booleanArray[0] = (boolean) elem;
+        for (int index = 1; index < size; ++index) {
+            booleanArray[index++] = (boolean) get(index);
         }
         return booleanArray;
     }
@@ -182,7 +182,6 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
         if (size == 0) {
             return new char[0];
         }
-
         if (charArray.length < size) {
             charArray = new char[size];
         }
@@ -195,8 +194,9 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
                 charArray[index] = 0;
             }
         }
-        for (int index = 0; index < size; ++index) {
-            charArray[index++] = (Character) get(index);
+        charArray[0] = (char) elem;
+        for (int index = 1; index < size; ++index) {
+            charArray[index++] = (char) get(index);
         }
         return charArray;
     }
