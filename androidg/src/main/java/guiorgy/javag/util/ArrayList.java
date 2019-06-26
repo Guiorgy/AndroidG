@@ -12,7 +12,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             byteArray = new byte[size];
         }
         final Object elem = get(0);
-        if (!Byte.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Byte)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Byte.class.getName());
         }
         if (byteArray.length > size) {
@@ -37,7 +37,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             shortArray = new short[size];
         }
         final Object elem = get(0);
-        if (!Short.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Short)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Short.class.getName());
         }
         if (shortArray.length > size) {
@@ -62,7 +62,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             intArray = new int[size];
         }
         final Object elem = get(0);
-        if (!Integer.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Integer)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Integer.class.getName());
         }
         if (intArray.length > size) {
@@ -87,7 +87,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             longArray = new long[size];
         }
         final Object elem = get(0);
-        if (!Long.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Long)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Long.class.getName());
         }
         if (longArray.length > size) {
@@ -112,7 +112,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             floatArray = new float[size];
         }
         final Object elem = get(0);
-        if (!Float.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Float)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Float.class.getName());
         }
         if (floatArray.length > size) {
@@ -137,7 +137,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             doubleArray = new double[size];
         }
         final Object elem = get(0);
-        if (!Double.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Double)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Double.class.getName());
         }
         if (doubleArray.length > size) {
@@ -162,7 +162,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             booleanArray = new boolean[size];
         }
         final Object elem = get(0);
-        if (!Boolean.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Boolean)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Boolean.class.getName());
         }
         if (booleanArray.length > size) {
@@ -187,7 +187,7 @@ public class ArrayList<E> extends java.util.ArrayList<E> implements List<E> {
             charArray = new char[size];
         }
         final Object elem = get(0);
-        if (!Character.class.isAssignableFrom(elem.getClass())) {
+        if (!(elem instanceof Character)) {
             throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Character.class.getName());
         }
         if (charArray.length > size) {
