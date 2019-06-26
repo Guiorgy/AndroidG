@@ -1,7 +1,7 @@
 package guiorgy.javag.util;
 
 public interface List<E> extends java.util.List<E> {
-    default byte[] toArray(byte[] byteArray) {
+    default byte[] toArray(byte[] byteArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new byte[0];
@@ -11,7 +11,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Byte)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Byte.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Byte.class.getName());
         }
         if (byteArray.length > size) {
             for (int index = size; index < byteArray.length; ++index) {
@@ -25,7 +25,7 @@ public interface List<E> extends java.util.List<E> {
         return byteArray;
     }
 
-    default short[] toArray(short[] shortArray) {
+    default short[] toArray(short[] shortArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new short[0];
@@ -35,7 +35,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Short)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Short.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Short.class.getName());
         }
         if (shortArray.length > size) {
             for (int index = size; index < shortArray.length; ++index) {
@@ -49,7 +49,7 @@ public interface List<E> extends java.util.List<E> {
         return shortArray;
     }
 
-    default int[] toArray(int[] intArray) {
+    default int[] toArray(int[] intArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new int[0];
@@ -59,7 +59,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Integer)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Integer.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Integer.class.getName());
         }
         if (intArray.length > size) {
             for (int index = size; index < intArray.length; ++index) {
@@ -73,7 +73,7 @@ public interface List<E> extends java.util.List<E> {
         return intArray;
     }
 
-    default long[] toArray(long[] longArray) {
+    default long[] toArray(long[] longArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new long[0];
@@ -83,7 +83,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Long)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Long.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Long.class.getName());
         }
         if (longArray.length > size) {
             for (int index = size; index < longArray.length; ++index) {
@@ -97,7 +97,7 @@ public interface List<E> extends java.util.List<E> {
         return longArray;
     }
 
-    default float[] toArray(float[] floatArray) {
+    default float[] toArray(float[] floatArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new float[0];
@@ -107,7 +107,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Float)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Float.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Float.class.getName());
         }
         if (floatArray.length > size) {
             for (int index = size; index < floatArray.length; ++index) {
@@ -121,7 +121,7 @@ public interface List<E> extends java.util.List<E> {
         return floatArray;
     }
 
-    default double[] toArray(double[] doubleArray) {
+    default double[] toArray(double[] doubleArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new double[0];
@@ -131,7 +131,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Double)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Double.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Double.class.getName());
         }
         if (doubleArray.length > size) {
             for (int index = size; index < doubleArray.length; ++index) {
@@ -145,7 +145,7 @@ public interface List<E> extends java.util.List<E> {
         return doubleArray;
     }
 
-    default boolean[] toArray(boolean[] booleanArray) {
+    default boolean[] toArray(boolean[] booleanArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new boolean[0];
@@ -155,7 +155,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Boolean)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Boolean.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Boolean.class.getName());
         }
         if (booleanArray.length > size) {
             for (int index = size; index < booleanArray.length; ++index) {
@@ -169,7 +169,7 @@ public interface List<E> extends java.util.List<E> {
         return booleanArray;
     }
 
-    default char[] toArray(char[] charArray) {
+    default char[] toArray(char[] charArray) throws ArrayStoreException, NullPointerException {
         final int size = size();
         if (size == 0) {
             return new char[0];
@@ -179,7 +179,7 @@ public interface List<E> extends java.util.List<E> {
         }
         final Object elem = get(0);
         if (!(elem instanceof Character)) {
-            throw new IllegalArgumentException(elem.getClass().getName() + " does not extend " + Character.class.getName());
+            throw new ArrayStoreException(elem.getClass().getName() + " does not extend " + Character.class.getName());
         }
         if (charArray.length > size) {
             for (int index = size; index < charArray.length; ++index) {
