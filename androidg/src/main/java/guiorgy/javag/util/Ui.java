@@ -55,4 +55,29 @@ public class Ui {
         final float scale = Resources.getSystem().getDisplayMetrics().density;
         return pxValue / scale + 0.5f;
     }
+
+    /**
+     * Attempt to hide soft keyboard.
+     *
+     * @param activity Current activity on which the soft keyboard is shown.
+     */
+    public static void hideKeyboard(@NonNull final Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        // Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        // If no view currently has focus, create a new one, just so we can grab a window token from it.
+        if (view == null) view = new View(activity);
+        if (imm != null) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    /**
+     * Attempt to hide soft keyboard.
+     *
+     * @param context
+     * @param view A view from the current activity.
+     */
+    public static void hideKeyboardFrom(@NonNull final Context context, @NonNull final View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (imm != null) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 }
