@@ -14,7 +14,8 @@ public class Fragment extends AbstractFragment {
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {}
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+    }
 
     @Override
     public boolean onBackPressed() {

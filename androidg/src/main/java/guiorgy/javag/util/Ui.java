@@ -3,8 +3,6 @@ package guiorgy.javag.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Build;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
@@ -12,7 +10,8 @@ import android.widget.AbsListView;
 import androidx.annotation.NonNull;
 
 public class Ui {
-    private Ui() {}
+    private Ui() {
+    }
 
     /**
      * Convert Density-independent Pixels (dip) to Pixels (px).
@@ -76,7 +75,7 @@ public class Ui {
      * Attempt to hide soft keyboard.
      *
      * @param context
-     * @param view A view from the current activity.
+     * @param view    A view from the current activity.
      */
     public static void hideKeyboardFrom(@NonNull final Context context, @NonNull final View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
