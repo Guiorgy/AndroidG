@@ -7,8 +7,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import guiorgy.androidg.fragment.app.IFragmentBackable;
+import guiorgy.androidg.fragment.app.IFragmentState;
+import guiorgy.androidg.fragment.app.IFragmentState.IActiviityState;
 
-abstract class AbstractActivity extends Activity {
+abstract class AbstractActivity extends Activity implements IActiviityState {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +23,6 @@ abstract class AbstractActivity extends Activity {
             finish();
             return;
         }
-    }
-
-    @NonNull
-    public int[] getFragmentIds() {
-        return new int[0];
     }
 
     @Override
