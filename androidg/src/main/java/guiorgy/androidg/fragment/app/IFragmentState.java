@@ -14,10 +14,7 @@ public interface IFragmentState {
     @Nullable
     Bundle getSavedState();
 
-    interface IActiviityState {
-        @NonNull
-        int[] getFragmentIds();
-
+    interface IActivityState {
         @NonNull
         String[] getFragmentTags();
     }
