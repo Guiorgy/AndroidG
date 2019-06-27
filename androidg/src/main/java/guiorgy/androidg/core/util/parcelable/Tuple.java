@@ -1,4 +1,4 @@
-package guiorgy.androidg.core.util;
+package guiorgy.androidg.core.util.parcelable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
