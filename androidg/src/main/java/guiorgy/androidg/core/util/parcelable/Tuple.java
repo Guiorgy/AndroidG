@@ -129,7 +129,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
     }
 
     public <E1 extends T1, E2 extends T2, E3 extends T3, E4 extends T4, E5 extends T5, E6 extends T6, E7 extends T7, E8 extends T8>
-    Tuple(T1 first, T2 second, T3 third, T4 fourth, T5 fifth, T6 sixth, T7 seventh, T8 eighth) {
+    Tuple(E1 first, E2 second, E3 third, E4 fourth, E5 fifth, E6 sixth, E7 seventh, E8 eighth) {
         this.first = first;
         this.second = second;
         this.third = third;
