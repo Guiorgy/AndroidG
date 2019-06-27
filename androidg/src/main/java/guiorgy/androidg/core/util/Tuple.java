@@ -132,6 +132,54 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple> 
         this.eighth = eighth;
         this.length = 8;
     }
+
+    public static <E1>
+    Tuple<E1, Void, Void, Void, Void, Void, Void, Void>
+    create(E1 first) {
+        return new Tuple<>(first);
+    }
+
+    public static <E1, E2>
+    Tuple<E1, E2, Void, Void, Void, Void, Void, Void>
+    create(E1 first, E2 second) {
+        return new Tuple<>(first, second);
+    }
+
+    public static <E1, E2, E3>
+    Tuple<E1, E2, E3, Void, Void, Void, Void, Void>
+    create(E1 first, E2 second, E3 third) {
+        return new Tuple<>(first, second, third);
+    }
+
+    public static <E1, E2, E3, E4>
+    Tuple<E1, E2, E3, E4, Void, Void, Void, Void>
+    create(E1 first, E2 second, E3 third, E4 fourth) {
+        return new Tuple<>(first, second, third, fourth);
+    }
+
+    public static <E1, E2, E3, E4, E5>
+    Tuple<E1, E2, E3, E4, E5, Void, Void, Void>
+    create(E1 first, E2 second, E3 third, E4 fourth, E5 fifth) {
+        return new Tuple<>(first, second, third, fourth, fifth);
+    }
+
+    public static <E1, E2, E3, E4, E5, E6>
+    Tuple<E1, E2, E3, E4, E5, E6, Void, Void>
+    create(E1 first, E2 second, E3 third, E4 fourth, E5 fifth, E6 sixth) {
+        return new Tuple<>(first, second, third, fourth, fifth, sixth);
+    }
+
+    public static <E1, E2, E3, E4, E5, E6, E7>
+    Tuple<E1, E2, E3, E4, E5, E6, E7, Void>
+    create(E1 first, E2 second, E3 third, E4 fourth, E5 fifth, E6 sixth, E7 seventh) {
+        return new Tuple<>(first, second, third, fourth, fifth, sixth, seventh);
+    }
+
+    public static <E1, E2, E3, E4, E5, E6, E7, E8>
+    Tuple<E1, E2, E3, E4, E5, E6, E7, E8>
+    create(E1 first, E2 second, E3 third, E4 fourth, E5 fifth, E6 sixth, E7 seventh, E8 eighth) {
+        return new Tuple<>(first, second, third, fourth, fifth, sixth, seventh, eighth);
+    }
     // endregion
 
     @Override
