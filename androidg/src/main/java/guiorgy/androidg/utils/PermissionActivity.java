@@ -69,7 +69,7 @@ public class PermissionActivity extends AppCompatActivity {
         }
         if (_permissions_denied.isEmpty()) {
             if (_permissions_granted.isEmpty()) {
-                throw new RuntimeException("there are no permissions");
+                throw new RuntimeException("There are no permissions");
             } else {
                 if (_permissionListener != null)
                     _permissionListener.onPermissionGranted(_permissions_granted.toArray(new String[0]));
