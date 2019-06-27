@@ -11,6 +11,11 @@ abstract class AbstractFragment extends Fragment implements IFragmentState, IFra
     private static final String SAVED_STATE = "SavedInstanceState";
 
     @Override
+    public Bundle getSavedState() {
+        return mSavedFragmentState;
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null && mSavedFragmentState == null) {

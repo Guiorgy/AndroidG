@@ -2,13 +2,13 @@ package guiorgy.androidg.appcompat.app;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import guiorgy.androidg.fragment.app.IFragmentBackable;
+import guiorgy.androidg.fragment.app.IFragmentState.IActiviityState;
 
-abstract class AbstractAppCompatActivity extends AppCompatActivity {
+abstract class AbstractAppCompatActivity extends AppCompatActivity implements IActiviityState {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +21,6 @@ abstract class AbstractAppCompatActivity extends AppCompatActivity {
             finish();
             return;
         }
-    }
-
-    @NonNull
-    public int[] getFragmentIds() {
-        return new int[0];
     }
 
     @Override
