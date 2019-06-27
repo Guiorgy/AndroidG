@@ -4,6 +4,8 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
+import static guiorgy.androidg.utils.API.nullSafeEquals;
+
 public class Triple<F, S, T> extends Pair<F, S> {
     public final T third;
 
@@ -27,11 +29,6 @@ public class Triple<F, S, T> extends Pair<F, S> {
     public Triple(F first, S second, T third) {
         super(first, second);
         this.third = third;
-    }
-
-    protected static boolean nullSafeEquals(Object a, Object b) {
-        //noinspection EqualsReplaceableByObjectsCall
-        return (a == b) || (a != null && a.equals(b));
     }
 
     /**
