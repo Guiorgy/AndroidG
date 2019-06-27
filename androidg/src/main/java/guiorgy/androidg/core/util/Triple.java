@@ -15,7 +15,8 @@ public class Triple<F, S, T> extends Pair<F, S> {
      * @param first  the first object in the Pair
      * @param second the second object in the pair
      */
-    public Triple(F first, S second) {
+    public <First extends F, Second extends S>
+    Triple(First first, Second second) {
         this(first, second, null);
     }
 
@@ -26,7 +27,8 @@ public class Triple<F, S, T> extends Pair<F, S> {
      * @param second the second object in the Triple
      * @param third  the third object in the Triple
      */
-    public Triple(F first, S second, T third) {
+    public <First extends F, Second extends S, Third extends T>
+    Triple(First first, Second second, Third third) {
         super(first, second);
         this.third = third;
     }
