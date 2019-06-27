@@ -8,4 +8,6 @@ public interface IFragmentState {
     @SuppressWarnings("unused")
     @NonNull
     Bundle saveState();
+
+    void onSaveState(@NonNull Bundle outState);
 }

@@ -14,8 +14,8 @@ import guiorgy.androidg.fragment.app.IFragmentState;
  */
 @Deprecated
 abstract class AbstractFragment extends Fragment implements IFragmentState, IFragmentBackable {
-    Bundle mSavedFragmentState;
-    static final String SAVED_STATE = "SavedInstanceState";
+    private Bundle mSavedFragmentState;
+    private static final String SAVED_STATE = "SavedInstanceState";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,10 +34,33 @@ abstract class AbstractFragment extends Fragment implements IFragmentState, IFra
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        mSavedFragmentState = saveState();
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
+    public final void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putBundle(SAVED_STATE, (mSavedFragmentState != null ? mSavedFragmentState : saveState()));
+    }
+
+    @NonNull
+    @Override
+    public final Bundle saveState() {
+        Bundle bundle = new Bundle();
+        onSaveState(bundle);
+        return bundle;
+    }
+
+    @Override
+    public void onSaveState(@NonNull Bundle outState) {
+    }
+
+    /**
+     * Called when the activity has detected the user's press of the back key and fragment is visible.
+     *
+     * @return True if the fragment has consumed the event, false otherwise.
+     */
+    @Override
+    public boolean onBackPressed() {
+        return false;
     }
 }
