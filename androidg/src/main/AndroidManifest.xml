@@ -1,2 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="guiorgy.androidg" />
+    package="guiorgy.androidg" >
+
+    <application android:allowBackup="true">
+        <activity
+            android:name=".utils.PermissionActivity"
+            android:label=""
+            android:theme="@style/Theme.Transparent"/>
+    </application>
+
+</manifest>
