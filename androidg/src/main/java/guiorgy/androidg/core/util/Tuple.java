@@ -33,10 +33,12 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
     public final T7 seventh;
     @Nullable
     public final T8 eighth;
+
     protected final int length;
 
     // region constructors
-    public Tuple(T1 first) {
+    public <E1 extends T1>
+    Tuple(E1 first) {
         this.first = first;
         this.second = null;
         this.third = null;
@@ -48,7 +50,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 1;
     }
 
-    public Tuple(T1 first, T2 second) {
+    public <E1 extends T1, E2 extends T2>
+    Tuple(E1 first, E2 second) {
         this.first = first;
         this.second = second;
         this.third = null;
@@ -60,7 +63,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 2;
     }
 
-    public Tuple(T1 first, T2 second, T3 third) {
+    public <E1 extends T1, E2 extends T2, E3 extends T3>
+    Tuple(E1 first, E2 second, E3 third) {
         this.first = first;
         this.second = second;
         this.third = third;
@@ -72,7 +76,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 3;
     }
 
-    public Tuple(T1 first, T2 second, T3 third, T4 fourth) {
+    public <E1 extends T1, E2 extends T2, E3 extends T3, E4 extends T4>
+    Tuple(E1 first, E2 second, E3 third, E4 fourth) {
         this.first = first;
         this.second = second;
         this.third = third;
@@ -84,7 +89,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 4;
     }
 
-    public Tuple(T1 first, T2 second, T3 third, T4 fourth, T5 fifth) {
+    public <E1 extends T1, E2 extends T2, E3 extends T3, E4 extends T4, E5 extends T5>
+    Tuple(E1 first, E2 second, E3 third, E4 fourth, E5 fifth) {
         this.first = first;
         this.second = second;
         this.third = third;
@@ -96,7 +102,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 5;
     }
 
-    public Tuple(T1 first, T2 second, T3 third, T4 fourth, T5 fifth, T6 sixth) {
+    public <E1 extends T1, E2 extends T2, E3 extends T3, E4 extends T4, E5 extends T5, E6 extends T6>
+    Tuple(E1 first, E2 second, E3 third, E4 fourth, E5 fifth, E6 sixth) {
         this.first = first;
         this.second = second;
         this.third = third;
@@ -108,7 +115,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 6;
     }
 
-    public Tuple(T1 first, T2 second, T3 third, T4 fourth, T5 fifth, T6 sixth, T7 seventh) {
+    public <E1 extends T1, E2 extends T2, E3 extends T3, E4 extends T4, E5 extends T5, E6 extends T6, E7 extends T7>
+    Tuple(E1 first, E2 second, E3 third, E4 fourth, E5 fifth, E6 sixth, E7 seventh) {
         this.first = first;
         this.second = second;
         this.third = third;
@@ -120,7 +128,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
         this.length = 7;
     }
 
-    public Tuple(T1 first, T2 second, T3 third, T4 fourth, T5 fifth, T6 sixth, T7 seventh, T8 eighth) {
+    public <E1 extends T1, E2 extends T2, E3 extends T3, E4 extends T4, E5 extends T5, E6 extends T6, E7 extends T7, E8 extends T8>
+    Tuple(T1 first, T2 second, T3 third, T4 fourth, T5 fifth, T6 sixth, T7 seventh, T8 eighth) {
         this.first = first;
         this.second = second;
         this.third = third;
@@ -136,7 +145,8 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
     protected Tuple(Parcel in) {
         length = in.readInt();
         final Class<?>[] types = (Class<?>[]) in.readArray(Class.class.getClassLoader());
-        final Boolean[] isSerializable = (Boolean[]) in.readArray(Boolean.class.getClassLoader());
+        Boolean[] isSerializable = (Boolean[]) in.readArray(Boolean.class.getClassLoader());
+        if (isSerializable == null) isSerializable = new Boolean[length];
         if (types != null) {
             T1 first = null;
             T2 second = null;
