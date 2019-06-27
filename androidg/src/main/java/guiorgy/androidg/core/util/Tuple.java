@@ -136,6 +136,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
     protected Tuple(Parcel in) {
         length = in.readInt();
         final Class<?>[] types = (Class<?>[]) in.readArray(Class.class.getClassLoader());
+        final Boolean[] isSerializable = (Boolean[]) in.readArray(Boolean.class.getClassLoader());
         if (types != null) {
             T1 first = null;
             T2 second = null;
@@ -149,27 +150,43 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                 case 8:
                     if (types[7] != null)
                         eighth = in.readParcelable(types[7].getClassLoader());
+                    else if (isSerializable[7] != null && isSerializable[7])
+                        eighth = (T8) in.readSerializable();
                 case 7:
                     if (types[6] != null)
                         seventh = in.readParcelable(types[6].getClassLoader());
+                    else if (isSerializable[6] != null && isSerializable[6])
+                        seventh = (T7) in.readSerializable();
                 case 6:
                     if (types[5] != null)
                         sixth = in.readParcelable(types[5].getClassLoader());
+                    else if (isSerializable[5] != null && isSerializable[5])
+                        sixth = (T6) in.readSerializable();
                 case 5:
                     if (types[4] != null)
                         fifth = in.readParcelable(types[4].getClassLoader());
+                    else if (isSerializable[4] != null && isSerializable[4])
+                        fifth = (T5) in.readSerializable();
                 case 4:
                     if (types[3] != null)
                         fourth = in.readParcelable(types[3].getClassLoader());
+                    else if (isSerializable[3] != null && isSerializable[3])
+                        fourth = (T4) in.readSerializable();
                 case 3:
                     if (types[2] != null)
                         third = in.readParcelable(types[2].getClassLoader());
+                    else if (isSerializable[2] != null && isSerializable[2])
+                        third = (T3) in.readSerializable();
                 case 2:
                     if (types[1] != null)
                         second = in.readParcelable(types[1].getClassLoader());
+                    else if (isSerializable[1] != null && isSerializable[1])
+                        second = (T2) in.readSerializable();
                 case 1:
                     if (types[0] != null)
                         first = in.readParcelable(types[0].getClassLoader());
+                    else if (isSerializable[0] != null && isSerializable[0])
+                        first = (T1) in.readSerializable();
                     break;
                 default:
                     throw new RuntimeException();
@@ -413,6 +430,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(length);
         final Class<?>[] types = new Class[length];
+        final Boolean[] isSerializable = {false, false, false, false, false, false, false, false};
         switch (length) {
             case 8:
                 if (eighth instanceof Parcelable) {
@@ -424,6 +442,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + eighth + " doesn't implement Parcelable");
                     if (eighth instanceof Serializable) {
                         dest.writeSerializable((Serializable) eighth);
+                        isSerializable[7] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + eighth + " doesn't implement Serializable either!");
                 }
@@ -437,6 +456,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + seventh + " doesn't implement Parcelable");
                     if (seventh instanceof Serializable) {
                         dest.writeSerializable((Serializable) seventh);
+                        isSerializable[6] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + seventh + " doesn't implement Serializable either!");
                 }
@@ -450,6 +470,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + sixth + " doesn't implement Parcelable");
                     if (sixth instanceof Serializable) {
                         dest.writeSerializable((Serializable) sixth);
+                        isSerializable[5] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + sixth + " doesn't implement Serializable either!");
                 }
@@ -463,6 +484,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + fifth + " doesn't implement Parcelable");
                     if (fifth instanceof Serializable) {
                         dest.writeSerializable((Serializable) fifth);
+                        isSerializable[4] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + fifth + " doesn't implement Serializable either!");
                 }
@@ -476,6 +498,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + fourth + " doesn't implement Parcelable");
                     if (fourth instanceof Serializable) {
                         dest.writeSerializable((Serializable) fourth);
+                        isSerializable[3] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + fourth + " doesn't implement Serializable either!");
                 }
@@ -489,6 +512,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + third + " doesn't implement Parcelable");
                     if (third instanceof Serializable) {
                         dest.writeSerializable((Serializable) third);
+                        isSerializable[2] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + third + " doesn't implement Serializable either!");
                 }
@@ -502,6 +526,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + second + " doesn't implement Parcelable");
                     if (second instanceof Serializable) {
                         dest.writeSerializable((Serializable) second);
+                        isSerializable[1] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + second + " doesn't implement Serializable either!");
                 }
@@ -515,6 +540,7 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                         Log.w(TAG, "Object " + first + " doesn't implement Parcelable");
                     if (first instanceof Serializable) {
                         dest.writeSerializable((Serializable) first);
+                        isSerializable[0] = true;
                     } else if (BuildConfig.DEBUG)
                         Log.w(TAG, "Object " + first + " doesn't implement Serializable either!");
                 }
@@ -523,5 +549,6 @@ public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple>,
                 throw new RuntimeException();
         }
         dest.writeArray(types);
+        dest.writeArray(isSerializable);
     }
 }
