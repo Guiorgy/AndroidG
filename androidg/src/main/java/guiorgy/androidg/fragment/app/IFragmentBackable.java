@@ -1,5 +1,7 @@
 package guiorgy.androidg.fragment.app;
 
+import androidx.annotation.NonNull;
+
 @SuppressWarnings({"SpellCheckingInspection", "DanglingJavadoc"})
 /** Override onBackPressed method in your activity like this! v */
 
@@ -18,4 +20,9 @@ public interface IFragmentBackable {
      * @return True if the fragment has consumed the event, false otherwise.
      */
     boolean onBackPressed();
+
+    interface IActivityBackable {
+        @NonNull
+        int[] getFragmentIds();
+    }
 }
