@@ -47,7 +47,7 @@ public interface List<E> extends java.util.List<E> {
         }
         byteArray[0] = (byte) elem;
         for (int index = 1; index < size; ++index) {
-            byteArray[index++] = (byte) get(index);
+            byteArray[index++] = (byte) (Byte) get(index);
         }
         return byteArray;
     }
@@ -98,7 +98,7 @@ public interface List<E> extends java.util.List<E> {
         }
         shortArray[0] = (short) elem;
         for (int index = 1; index < size; ++index) {
-            shortArray[index++] = (short) get(index);
+            shortArray[index++] = (short) (Short) get(index);
         }
         return shortArray;
     }
@@ -149,7 +149,7 @@ public interface List<E> extends java.util.List<E> {
         }
         intArray[0] = (int) elem;
         for (int index = 1; index < size; ++index) {
-            intArray[index++] = (int) get(index);
+            intArray[index++] = (int) (Integer) get(index);
         }
         return intArray;
     }
@@ -200,7 +200,7 @@ public interface List<E> extends java.util.List<E> {
         }
         longArray[0] = (long) elem;
         for (int index = 1; index < size; ++index) {
-            longArray[index++] = (long) get(index);
+            longArray[index++] = (long) (Long) get(index);
         }
         return longArray;
     }
@@ -251,7 +251,7 @@ public interface List<E> extends java.util.List<E> {
         }
         floatArray[0] = (float) elem;
         for (int index = 1; index < size; ++index) {
-            floatArray[index++] = (float) get(index);
+            floatArray[index++] = (float) (Float) get(index);
         }
         return floatArray;
     }
@@ -302,7 +302,7 @@ public interface List<E> extends java.util.List<E> {
         }
         doubleArray[0] = (double) elem;
         for (int index = 1; index < size; ++index) {
-            doubleArray[index++] = (double) get(index);
+            doubleArray[index++] = (double) (Double) get(index);
         }
         return doubleArray;
     }
@@ -353,7 +353,7 @@ public interface List<E> extends java.util.List<E> {
         }
         booleanArray[0] = (boolean) elem;
         for (int index = 1; index < size; ++index) {
-            booleanArray[index++] = (boolean) get(index);
+            booleanArray[index++] = (boolean) (Boolean) get(index);
         }
         return booleanArray;
     }
@@ -404,7 +404,7 @@ public interface List<E> extends java.util.List<E> {
         }
         charArray[0] = (char) elem;
         for (int index = 1; index < size; ++index) {
-            charArray[index++] = (char) get(index);
+            charArray[index++] = (char) (Character) get(index);
         }
         return charArray;
     }
