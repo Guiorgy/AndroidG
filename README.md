@@ -11,7 +11,7 @@ if (triple.third) ...
 ```
 
 * __Tuple__\
-_Stores up to 8 objegts_
+_Stores up to 8 objects_
 
 ```java
 Tuple<Integer, Integer, Boolean, Double, Double, Void, Void, Void> t = Tuple.create(1, 2, false, 1.5, 2.5);
