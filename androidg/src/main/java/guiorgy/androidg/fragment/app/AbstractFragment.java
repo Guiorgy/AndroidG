@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-abstract class AbstractFragment extends Fragment implements IFragmentState, IFragmentBackable {
+abstract class AbstractFragment extends Fragment implements FragmentState, FragmentBackable {
     private Bundle mSavedFragmentState;
     private static final String SAVED_STATE = "SavedInstanceState";
 

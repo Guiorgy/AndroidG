@@ -5,9 +5,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import guiorgy.androidg.fragment.app.IFragmentBackable;
-import guiorgy.androidg.fragment.app.IFragmentBackable.IActivityBackable;
-import guiorgy.androidg.fragment.app.IFragmentState.IActivityState;
+import guiorgy.androidg.fragment.app.FragmentBackable;
+import guiorgy.androidg.fragment.app.FragmentBackable.IActivityBackable;
+import guiorgy.androidg.fragment.app.FragmentState.IActivityState;
 
 abstract class AbstractAppCompatActivity extends AppCompatActivity implements IActivityState, IActivityBackable {
     @Override
@@ -31,13 +31,13 @@ abstract class AbstractAppCompatActivity extends AppCompatActivity implements IA
         if (fragmentIds.length != 0) {
             for (final int fragmentId : fragmentIds) {
                 Fragment fragment = getSupportFragmentManager().findFragmentById(fragmentId);
-                if (fragment != null && fragment.isVisible() && (fragment instanceof IFragmentBackable) && ((IFragmentBackable) fragment).onBackPressed()) {
+                if (fragment != null && fragment.isVisible() && (fragment instanceof FragmentBackable) && ((FragmentBackable) fragment).onBackPressed()) {
                     handled = true;
                 }
             }
         } else {
             for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-                if (fragment != null && fragment.isVisible() && (fragment instanceof IFragmentBackable) && ((IFragmentBackable) fragment).onBackPressed()) {
+                if (fragment != null && fragment.isVisible() && (fragment instanceof FragmentBackable) && ((FragmentBackable) fragment).onBackPressed()) {
                     handled = true;
                 }
             }
