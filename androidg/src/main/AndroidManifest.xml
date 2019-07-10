@@ -3,7 +3,7 @@
 
     <application android:allowBackup="true">
         <activity
-            android:name=".utils.PermissionActivity"
+            android:name=".util.PermissionActivity"
             android:label=""
             android:theme="@style/Theme.Transparent"/>
     </application>

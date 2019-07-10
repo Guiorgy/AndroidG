@@ -1,4 +1,4 @@
-package guiorgy.androidg.utils;
+package guiorgy.androidg.util;
 
 public class API {
     private API() {

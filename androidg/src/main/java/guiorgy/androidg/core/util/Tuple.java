@@ -3,7 +3,7 @@ package guiorgy.androidg.core.util;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import static guiorgy.androidg.utils.API.nullSafeEquals;
+import static guiorgy.androidg.util.API.nullSafeEquals;
 
 @SuppressWarnings({"NullableProblems", "WeakerAccess", "unused"})
 public class Tuple<T1, T2, T3, T4, T5, T6, T7, T8> implements Comparable<Tuple> {

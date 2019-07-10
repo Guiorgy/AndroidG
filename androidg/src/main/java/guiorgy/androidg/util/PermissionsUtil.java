@@ -1,4 +1,4 @@
-package guiorgy.androidg.utils;
+package guiorgy.androidg.util;
 
 import android.content.Context;
 import android.content.Intent;

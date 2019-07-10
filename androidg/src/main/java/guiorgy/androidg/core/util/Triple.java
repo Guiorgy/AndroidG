@@ -4,7 +4,7 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
-import static guiorgy.androidg.utils.API.nullSafeEquals;
+import static guiorgy.androidg.util.API.nullSafeEquals;
 
 public class Triple<F, S, T> extends Pair<F, S> {
     public final T third;
